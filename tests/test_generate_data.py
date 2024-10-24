@@ -1,6 +1,7 @@
 # tests/test_generate_data.py
 
 import pytest
+import pandas as pd
 from src.generate_data import generate_synthetic_vineyard_data
 
 def test_generate_synthetic_vineyard_data():
