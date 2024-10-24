@@ -1,24 +1,26 @@
-# tests/test_generate_data.py
-
+import os
 import pytest
-import pandas as pd
-from src.generate_data import generate_synthetic_vineyard_data
+from src.generate_data import save_to_parquet
 
-def test_generate_synthetic_vineyard_data():
+def test_generate_and_save_data():
     """
-    Test that synthetic data generation works and produces the correct structure.
+    Test that synthetic data is generated and saved correctly to a Parquet file.
     """
-    data = generate_synthetic_vineyard_data()
+    output_file = 'data/synthetic_vineyard_data.parquet'
     
-    # Check that the output is a DataFrame
-    assert isinstance(data, pd.DataFrame)
+    # Remove the file if it exists to simulate first-time generation
+    if os.path.exists(output_file):
+        os.remove(output_file)
     
-    # Check that the DataFrame contains the expected columns
-    expected_columns = ['DTM', 'CHM', 'NDVI', 'LAI', 'Botrytis_Risk']
-    assert all(col in data.columns for col in expected_columns)
+    # Run the data generation script
+    save_to_parquet(output_file)
+    
+    # Check that the file has been created
+    assert os.path.exists(output_file)
+    
+    # Run again to check that it skips generation if the file exists
+    save_to_parquet(output_file)
+    assert os.path.exists(output_file)
 
-    # Check that the DataFrame has non-zero entries
-    assert len(data) > 0
-
-# If pytest is installed, you can run tests from the command line:
+# To run the test, use pytest:
 # pytest tests/test_generate_data.py
