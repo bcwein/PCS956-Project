@@ -3,3 +3,9 @@ PCS956
 .vscode*
 
 *__pycache__*
+
+data
+
+*.parquet
+
+/mnt/RAID/projects/PCS956-Project/src/pcs956_project.egg-info
