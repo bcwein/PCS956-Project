@@ -7,7 +7,3 @@ PCS956
 *.parquet
 
 /src/pcs956_project.egg-info
-
-data
-data/synthetic_vineyard_data.parquet
-data/synthetic_vineyard_data.parquet
