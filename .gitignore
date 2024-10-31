@@ -4,8 +4,10 @@ PCS956
 
 *__pycache__*
 
-data
-
 *.parquet
 
-/mnt/RAID/projects/PCS956-Project/src/pcs956_project.egg-info
+/src/pcs956_project.egg-info
+
+data
+data/synthetic_vineyard_data.parquet
+data/synthetic_vineyard_data.parquet
