@@ -21,6 +21,3 @@ def test_generate_and_save_data():
     # Run again to check that it skips generation if the file exists
     save_to_parquet(output_file)
     assert os.path.exists(output_file)
-
-# To run the test, use pytest:
-# pytest tests/test_generate_data.py
